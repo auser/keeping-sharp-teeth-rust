@@ -93,6 +93,7 @@ printf '\nSolutions passing: %d/%d problems (%d tested)\n' \
 printf 'Tests: %d passed, %d failed\n' "$tests_passed" "$tests_failed"
 
 
+if [ "${UPDATE_PROGRESS:-0}" = "1" ]; then
 {
     printf '# Problem Progress\n\n'
     printf '_Updated after make progress on %s._\n\n' "$(date '+%Y-%m-%d %H:%M:%S %Z')"
@@ -106,5 +107,6 @@ printf 'Tests: %d passed, %d failed\n' "$tests_passed" "$tests_failed"
 } > "$progress_tmp"
 mv "$progress_tmp" PROGRESS.md
 printf '\nUpdated PROGRESS.md\n'
+fi
 
 [ "$solutions_tested" -gt 0 ] && [ "$tests_failed" -eq 0 ] && [ "$solutions_passing" -eq "$solutions_tested" ]
