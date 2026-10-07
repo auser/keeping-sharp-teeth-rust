@@ -7,8 +7,10 @@ A small repository for practicing Rust with one Cargo project per problem.
 - `problems/` contains the problem statements as Markdown files named
   `NNN_problem-name.md`.
 - `answers/` contains the Rust binary crates created for those problems.
-  Crate names use hyphens, for example `003_palindrome_number.md` becomes
-  `answers/003-palindrome-number/`.
+  Directory names keep the problem number, for example
+  `003_palindrome_number.md` becomes `answers/003-palindrome-number/`. Cargo
+  package names omit the numeric prefix (`palindrome-number`) because Cargo
+  package names cannot start with a digit.
 
 ## Create an answer project
 
