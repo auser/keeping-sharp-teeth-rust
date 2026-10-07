@@ -59,6 +59,8 @@ Tests continue after failures so the full report is available. The command exits
 
 `make progress` is an alias for `make test`; it runs the tests and refreshes the same report.
 
+A GitHub Actions workflow also runs `make progress` on pushes to `main` and commits an updated `PROGRESS.md` when the report changes.
+
 ## Work on an answer
 
 Change into the generated project and use Cargo as usual:
