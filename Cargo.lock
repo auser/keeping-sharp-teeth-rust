@@ -19,6 +19,10 @@ name = "find-maximum"
 version = "0.1.0"
 
 [[package]]
+name = "find-minimum"
+version = "0.1.0"
+
+[[package]]
 name = "fizzbuzz"
 version = "0.1.0"
 
