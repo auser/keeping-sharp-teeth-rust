@@ -40,6 +40,16 @@ make answer PROBLEM=003_palindrome_number
 The explicit form selects a matching `problems/NNN_*.md` file and reports an
 error if its answer project already exists.
 
+## Run all answer tests
+
+Run the tests for every Cargo project directly inside `answers/` with:
+
+```sh
+make test
+```
+
+The target tests each answer project in turn and stops if a test command fails.
+
 ## Work on an answer
 
 Change into the generated project and use Cargo as usual:
