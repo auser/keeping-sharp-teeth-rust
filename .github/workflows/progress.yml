@@ -8,6 +8,11 @@ on:
 permissions:
   contents: write
 
+# Avoid two report jobs racing to update main at the same time.
+concurrency:
+  group: problem-progress
+  cancel-in-progress: false
+
 jobs:
   progress:
     # Skip the bot's report commit to avoid an unnecessary second run.
@@ -22,18 +27,33 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: Run tests and update progress
-        run: make progress
-
-      - name: Commit updated report
-        if: always()
         run: |
-          if git diff --quiet -- PROGRESS.md; then
-            echo "PROGRESS.md is already up to date."
-            exit 0
-          fi
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add PROGRESS.md
-          git commit -m "Update problem progress"
-          git push origin HEAD:main
+
+          for attempt in 1 2 3; do
+            # Test the latest main, since it may have advanced since this run started.
+            git fetch origin main
+            git reset --hard origin/main
+
+            set +e
+            make progress
+            test_status=$?
+            set -e
+
+            git add PROGRESS.md
+            if git diff --cached --quiet; then
+              echo "PROGRESS.md is already up to date."
+              exit "$test_status"
+            fi
+
+            git commit -m "Update problem progress"
+            if git push origin HEAD:main; then
+              exit "$test_status"
+            fi
+
+            echo "Push raced with another main update; retrying ($attempt/3)."
+          done
+
+          echo "Could not update PROGRESS.md after three attempts." >&2
+          exit 1
