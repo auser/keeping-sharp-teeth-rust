@@ -51,10 +51,10 @@ for problem_file in problems/[0-9]*_*.md; do
     printf '[%d/%d] Testing %s\n' "$problem_number" "$total" "$problem"
 
     if CARGO_TERM_COLOR=never cargo test --manifest-path "$manifest" > "$log" 2>&1; then
-        result='PASS'
+        result='✅ PASS'
         solutions_passing=$((solutions_passing + 1))
     else
-        result='FAIL'
+        result='❌ FAIL'
         cat "$log"
     fi
 
