@@ -1,14 +1,24 @@
 .PHONY: help answer
 
 help:
-	@printf '%s\n' 'Targets:' '  make answer PROBLEM=003  Create answers/003-problem-name from problems/003_*.md'
+	@printf '%s\n' 'Targets:' '  make answer              Create the next unanswered project' '  make answer PROBLEM=003  Create answers/003-problem-name from problems/003_*.md'
 
 answer:
 	@set -eu; \
 	problem='$(PROBLEM)'; \
 	if [ -z "$$problem" ]; then \
-		printf '%s\n' 'Usage: make answer PROBLEM=003' >&2; \
-		exit 2; \
+		for problem_file in $$(find problems -maxdepth 1 -type f -name '[0-9]*_*.md' -print | sort); do \
+			stem=$$(basename "$$problem_file" .md); \
+			package_name=$$(printf '%s\n' "$$stem" | tr '_' '-'); \
+			if [ ! -e "answers/$$package_name" ]; then \
+				problem="$$stem"; \
+				break; \
+			fi; \
+		done; \
+		if [ -z "$$problem" ]; then \
+			printf '%s\n' 'No unanswered problems found in problems/.' >&2; \
+			exit 1; \
+		fi; \
 	fi; \
 	problem_id=$$(printf '%s\n' "$$problem" | sed 's/_.*//'); \
 	case "$$problem_id" in \
