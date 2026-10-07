@@ -13,7 +13,8 @@ if [ "$total" -eq 0 ]; then
 fi
 
 tmp_dir=$(mktemp -d "${TMPDIR:-/tmp}/answer-tests.XXXXXX") || exit 1
-trap 'rm -rf "$tmp_dir"' 0
+progress_tmp=".PROGRESS.md.tmp.$"
+trap 'rm -f "$progress_tmp"; rm -rf "$tmp_dir"' 0
 trap 'exit 1' HUP INT TERM
 rows="$tmp_dir/rows"
 : > "$rows"
@@ -90,5 +91,20 @@ done < "$rows"
 printf '\nSolutions passing: %d/%d problems (%d tested)\n' \
     "$solutions_passing" "$total" "$solutions_tested"
 printf 'Tests: %d passed, %d failed\n' "$tests_passed" "$tests_failed"
+
+progress_tmp=".PROGRESS.md.tmp.$"
+{
+    printf '# Problem Progress\n\n'
+    printf '_Updated after make test on %s._\n\n' "$(date '+%Y-%m-%d %H:%M:%S %Z')"
+    printf '| Problem | Solution | Tests | Result |\n'
+    printf '| --- | --- | --- | --- |\n'
+    while IFS="$(printf '\t')" read -r problem solution test_summary result; do
+        printf '| %s | %s | %s | %s |\n' "$problem" "$solution" "$test_summary" "$result"
+    done < "$rows"
+    printf '\n**Solutions passing:** %d/%d problems (%d tested)\n\n' "$solutions_passing" "$total" "$solutions_tested"
+    printf '**Tests:** %d passed, %d failed\n' "$tests_passed" "$tests_failed"
+} > "$progress_tmp"
+mv "$progress_tmp" PROGRESS.md
+printf '\nUpdated PROGRESS.md\n'
 
 [ "$solutions_tested" -gt 0 ] && [ "$tests_failed" -eq 0 ] && [ "$solutions_passing" -eq "$solutions_tested" ]
