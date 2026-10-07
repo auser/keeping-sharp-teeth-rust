@@ -1,0 +1,39 @@
+name: Update problem progress
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  progress:
+    # Skip the bot's report commit to avoid an unnecessary second run.
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Run tests and update progress
+        run: make progress
+
+      - name: Commit updated report
+        if: always()
+        run: |
+          if git diff --quiet -- PROGRESS.md; then
+            echo "PROGRESS.md is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add PROGRESS.md
+          git commit -m "Update problem progress"
+          git push
