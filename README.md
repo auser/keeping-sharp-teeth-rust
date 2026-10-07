@@ -48,29 +48,9 @@ Run the tests for every Cargo project directly inside `answers/` with:
 make test
 ```
 
-The report includes a row for every problem statement. It runs every available
-answer project, records passed and failed test counts, and continues after a
-failure so you get a complete report. Problems without an answer project show
-`NOT STARTED`; answer directories without a `Cargo.toml` show `INCOMPLETE`.
-The command exits unsuccessfully if any test run fails or if no answer projects
-can be tested.
+`make test` refreshes [`PROGRESS.md`](PROGRESS.md) in the repository root and prints the report. It includes every problem statement, the solution state, passed and failed test counts, and a PASS, FAIL, or NOT RUN result. Missing projects are marked `NOT STARTED`; answer directories without a `Cargo.toml` are marked `INCOMPLETE`.
 
-Example output (counts and states are illustrative):
-
-| Problem | Solution | Tests | Result |
-| --- | --- | --- | --- |
-| 001-two-sum | SOLVED | 5 passed, 0 failed | PASS |
-| 002-reverse-string | SOLVED | 4 passed, 0 failed | PASS |
-| 003-palindrome-number | SOLVED | 3 passed, 1 failed | FAIL |
-| 004-fizzbuzz | SOLVED | 2 passed, 0 failed | PASS |
-| 005-fibonacci-number | SOLVED | 4 passed, 0 failed | PASS |
-| 006-factorial | NOT STARTED | — | NOT RUN |
-| 007-count-digits | INCOMPLETE | — | NOT RUN |
-| 008-sum-of-array | SOLVED | no test summary | FAIL |
-| 009-find-maximum | SOLVED | 1 passed, 0 failed | PASS |
-
-Solutions passing: 5/9 problems (7 tested)
-Tests: 19 passed, 1 failed
+The report file is visible before the first run, with every problem listed as NOT RUN. Each run replaces those initial states with current results. Tests continue after failures so the full report is available; the command exits unsuccessfully if any test fails or no projects can be tested.
 
 ## Work on an answer
 
