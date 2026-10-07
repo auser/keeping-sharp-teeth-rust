@@ -42,7 +42,7 @@ for problem_file in problems/[0-9]*_*.md; do
             solution='NOT STARTED'
         fi
         printf '[%d/%d] %s: %s\n' "$problem_number" "$total" "$problem" "$solution"
-        printf '%s\t%s\t%s\t%s\n' "$problem" "$solution" '—' 'NOT RUN' >> "$rows"
+        printf '%s\t%s\t%s\t%s\n' "$problem" "$solution" '—' '⏸️ NOT RUN' >> "$rows"
         continue
     fi
 
@@ -51,10 +51,10 @@ for problem_file in problems/[0-9]*_*.md; do
     printf '[%d/%d] Testing %s\n' "$problem_number" "$total" "$problem"
 
     if CARGO_TERM_COLOR=never cargo test --manifest-path "$manifest" > "$log" 2>&1; then
-        result='PASS'
+        result='✅ PASS'
         solutions_passing=$((solutions_passing + 1))
     else
-        result='FAIL'
+        result='❌ FAIL'
         cat "$log"
     fi
 
@@ -95,7 +95,7 @@ printf 'Tests: %d passed, %d failed\n' "$tests_passed" "$tests_failed"
 
 {
     printf '# Problem Progress\n\n'
-    printf '_Updated after make test on %s._\n\n' "$(date '+%Y-%m-%d %H:%M:%S %Z')"
+    printf '_Updated after make progress on %s._\n\n' "$(date '+%Y-%m-%d %H:%M:%S %Z')"
     printf '| Problem | Solution | Tests | Result |\n'
     printf '| --- | --- | --- | --- |\n'
     while IFS="$(printf '\t')" read -r problem solution test_summary result; do
