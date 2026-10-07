@@ -37,4 +37,4 @@ test:
 	@sh scripts/test-answers.sh
 
 progress:
-	@if [ -f PROGRESS.md ]; then cat PROGRESS.md; else printf '%s\\n' 'No report yet. Run make test first.' >&2; exit 1; fi
+	@if [ -f PROGRESS.md ]; then cat PROGRESS.md; else echo 'No report yet. Run make test first.' >&2; exit 1; fi
