@@ -50,10 +50,10 @@ make test
 
 `make test` runs tests for every answer crate and writes the latest results to [PROGRESS.md](PROGRESS.md). The report has one row for every problem statement, with its solution state, test counts, and result.
 
-- `PASS` and `FAIL` show the test outcome.
+- `✅ PASS` and `❌ FAIL` show the test outcome.
 - `NOT STARTED` means no answer project exists yet.
 - `INCOMPLETE` means the answer directory has no `Cargo.toml`.
-- `NOT RUN` means there was no test result to report.
+- `⏸️ NOT RUN` means there was no test result to report.
 
 Tests continue after failures so the full report is available. The command exits unsuccessfully if any test run fails or if no projects can be tested. `make test` refreshes `PROGRESS.md` in your working tree; commit it to share the results.
 
