@@ -24,7 +24,7 @@ answer:
 	case "$$problem_id" in \
 		*[!0-9]*|'') printf 'Invalid problem identifier: %s\n' "$$problem" >&2; exit 2 ;; \
 	esac; \
-	problem_file=$$(find problems -maxdepth 1 -type f -name "$\${problem_id}_*.md" -print -quit); \
+	problem_file=$$(find problems -maxdepth 1 -type f -name "${problem_id}_*.md" -print -quit); \
 	if [ -z "$$problem_file" ]; then \
 		printf 'No problem found for %s in problems/\n' "$$problem_id" >&2; \
 		exit 1; \
