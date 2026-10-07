@@ -7,6 +7,10 @@ name = "count-digits"
 version = "0.1.0"
 
 [[package]]
+name = "even-or-odd"
+version = "0.1.0"
+
+[[package]]
 name = "factorial"
 version = "0.1.0"
 
