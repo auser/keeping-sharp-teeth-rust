@@ -3,7 +3,6 @@ ANSWER_DIR = answers/$(subst _,-,$(basename $(notdir $(1))))
 UNANSWERED := $(foreach problem,$(PROBLEMS),$(if $(wildcard $(call ANSWER_DIR,$(problem))),,$(problem)))
 NEXT_PROBLEM := $(firstword $(UNANSWERED))
 PROBLEM_FILE = $(if $(PROBLEM),$(firstword $(wildcard problems/$(PROBLEM).md problems/$(PROBLEM)_*.md)),$(NEXT_PROBLEM))
-ANSWER_MANIFESTS := $(wildcard answers/*/Cargo.toml)
 
 .PHONY: help answer test
 
@@ -11,7 +10,7 @@ help:
 	@printf '%s\n' 'Targets:' \
 		'  make answer              Create the next unanswered project' \
 		'  make answer PROBLEM=003  Create a project for problem 003' \
-		'  make test                Run tests in every answer project'
+		'  make test                Show test progress for every problem'
 
 answer:
 	@set -eu; \
@@ -34,12 +33,4 @@ answer:
 	printf 'Created %s\n' "$$answer_dir"
 
 test:
-	@set -eu; \
-	if [ -z "$(ANSWER_MANIFESTS)" ]; then \
-		printf '%s\n' 'No answer projects found in answers/.' >&2; \
-		exit 1; \
-	fi; \
-	for manifest in $(ANSWER_MANIFESTS); do \
-		printf '==> Testing %s\n' "$$manifest"; \
-		cargo test --manifest-path "$$manifest"; \
-	done
+	@sh scripts/test-answers.sh

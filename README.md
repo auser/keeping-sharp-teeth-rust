@@ -48,7 +48,29 @@ Run the tests for every Cargo project directly inside `answers/` with:
 make test
 ```
 
-The target tests each answer project in turn and stops if a test command fails.
+The report includes a row for every problem statement. It runs every available
+answer project, records passed and failed test counts, and continues after a
+failure so you get a complete report. Problems without an answer project show
+`NOT STARTED`; answer directories without a `Cargo.toml` show `INCOMPLETE`.
+The command exits unsuccessfully if any test run fails or if no answer projects
+can be tested.
+
+Example output (counts and states are illustrative):
+
+| Problem | Solution | Tests | Result |
+| --- | --- | --- | --- |
+| 001-two-sum | SOLVED | 5 passed, 0 failed | PASS |
+| 002-reverse-string | SOLVED | 4 passed, 0 failed | PASS |
+| 003-palindrome-number | SOLVED | 3 passed, 1 failed | FAIL |
+| 004-fizzbuzz | SOLVED | 2 passed, 0 failed | PASS |
+| 005-fibonacci-number | SOLVED | 4 passed, 0 failed | PASS |
+| 006-factorial | NOT STARTED | — | NOT RUN |
+| 007-count-digits | INCOMPLETE | — | NOT RUN |
+| 008-sum-of-array | SOLVED | no test summary | FAIL |
+| 009-find-maximum | SOLVED | 1 passed, 0 failed | PASS |
+
+Solutions passing: 5/9 problems (7 tested)
+Tests: 19 passed, 1 failed
 
 ## Work on an answer
 
