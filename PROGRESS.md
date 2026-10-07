@@ -1,6 +1,6 @@
 # Problem Progress
 
-_Updated after make test on 2026-10-07 12:28:37 PDT._
+_Updated after make test on 2026-10-07 12:36:42 PDT._
 
 | Problem | Solution | Tests | Result |
 | --- | --- | --- | --- |
@@ -17,7 +17,7 @@ _Updated after make test on 2026-10-07 12:28:37 PDT._
 | 011-even-or-odd | SOLVED | 1 passed, 0 failed | PASS |
 | 012-prime-number-check | SOLVED | 1 passed, 0 failed | PASS |
 | 013-leap-year | SOLVED | 1 passed, 0 failed | PASS |
-| 014-celsius-to-fahrenheit | NOT STARTED | — | NOT RUN |
+| 014-celsius-to-fahrenheit | SOLVED | 1 passed, 0 failed | PASS |
 | 015-swap-two-numbers | NOT STARTED | — | NOT RUN |
 | 016-reverse-integer | NOT STARTED | — | NOT RUN |
 | 017-count-vowels | NOT STARTED | — | NOT RUN |
@@ -105,6 +105,6 @@ _Updated after make test on 2026-10-07 12:28:37 PDT._
 | 099-regular-expression-matching | NOT STARTED | — | NOT RUN |
 | 100-n-queens | NOT STARTED | — | NOT RUN |
 
-**Solutions passing:** 13/100 problems (13 tested)
+**Solutions passing:** 14/100 problems (14 tested)
 
-**Tests:** 21 passed, 0 failed
+**Tests:** 22 passed, 0 failed
