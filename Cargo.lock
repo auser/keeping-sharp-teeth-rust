@@ -31,6 +31,10 @@ name = "fizzbuzz"
 version = "0.1.0"
 
 [[package]]
+name = "leap-year"
+version = "0.1.0"
+
+[[package]]
 name = "palindrome-number"
 version = "0.1.0"
 
