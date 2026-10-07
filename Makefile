@@ -1,7 +1,22 @@
-.PHONY: help answer
+.PHONY: help answer test
 
 help:
 	@printf '%s\n' 'Targets:' '  make answer              Create the next unanswered project' '  make answer PROBLEM=003  Create answers/003-problem-name from problems/003_*.md'
+
+
+test:
+	@set -eu; \
+	found=0; \
+	for manifest in answers/*/Cargo.toml; do \
+		[ -f "$$manifest" ] || continue; \
+		found=1; \
+		printf '==> Testing %s\n' "$$manifest"; \
+		cargo test --manifest-path "$$manifest"; \
+	done; \
+	if [ "$$found" -eq 0 ]; then \
+		printf '%s\n' 'No answer projects found in answers/.' >&2; \
+		exit 1; \
+	fi
 
 answer:
 	@set -eu; \
