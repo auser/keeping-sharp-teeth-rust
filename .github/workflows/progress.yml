@@ -37,7 +37,7 @@ jobs:
             git reset --hard origin/main
 
             set +e
-            make progress
+            UPDATE_PROGRESS=1 make progress
             test_status=$?
             set -e
 
