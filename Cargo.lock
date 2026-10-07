@@ -55,5 +55,9 @@ name = "sum_of_array"
 version = "0.1.0"
 
 [[package]]
+name = "swap-two-numbers"
+version = "0.1.0"
+
+[[package]]
 name = "two-sum"
 version = "0.1.0"
