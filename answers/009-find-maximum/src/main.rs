@@ -6,12 +6,14 @@ struct Solution;
 
 impl Solution {
     pub fn find_max(nums: Vec<i32>) -> i32 {
-        let mut max = nums.first();
-        for num in nums.iter() {
+        // iterative
+        // rusty
+        let mut max = i32::MIN;
+        nums.iter().copied().for_each(|num| {
             if num > max {
-                max = num;
+                max = num
             }
-        }
+        });
         max
     }
 }
