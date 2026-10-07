@@ -24,7 +24,7 @@ answer:
 	case "$$problem_id" in \
 		*[!0-9]*|'') printf 'Invalid problem identifier: %s\n' "$$problem" >&2; exit 2 ;; \
 	esac; \
-	problem_file=$$(find problems -maxdepth 1 -type f -name "$${problem_id}_*.md" -print -quit); \
+	problem_file=$$(find problems -maxdepth 1 -type f -name "${problem_id}_*.md" -print -quit); \
 	if [ -z "$$problem_file" ]; then \
 		printf 'No problem found for %s in problems/\n' "$$problem_id" >&2; \
 		exit 1; \
@@ -32,9 +32,14 @@ answer:
 	stem=$$(basename "$$problem_file" .md); \
 	package_name=$$(printf '%s\n' "$$stem" | tr '_' '-'); \
 	answer_dir="answers/$$package_name"; \
+	crate_name=$$(printf '%s\n' "$$package_name" | sed 's/^[0-9][0-9]*-//'); \
+	if [ -z "$$crate_name" ]; then \
+		printf 'Could not derive a Cargo package name from %s\n' "$$package_name" >&2; \
+		exit 1; \
+	fi; \
 	if [ -e "$$answer_dir" ]; then \
 		printf 'Answer project already exists: %s\n' "$$answer_dir" >&2; \
 		exit 1; \
 	fi; \
-	cargo new --bin --name "$$package_name" "$$answer_dir"; \
-	printf 'Created %s\n' "$$answer_dir"
+	cargo new --bin --name "$$crate_name" "$$answer_dir"; \
+	printf 'Created %s (Cargo package: %s)\n' "$$answer_dir" "$$crate_name"
