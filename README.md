@@ -57,6 +57,8 @@ make test
 
 Tests continue after failures so the full report is available. The command exits unsuccessfully if any test run fails or if no projects can be tested. `make test` refreshes `PROGRESS.md` in your working tree; commit it to share the results.
 
+`make progress` is an alias for `make test`; it runs the tests and refreshes the same report.
+
 ## Work on an answer
 
 Change into the generated project and use Cargo as usual:
