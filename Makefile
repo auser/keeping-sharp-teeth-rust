@@ -11,7 +11,7 @@ help:
 		'  make answer              Create the next unanswered project' \
 		'  make answer PROBLEM=003  Create a project for problem 003' \
 		'  make test                Show test progress for every problem' \
-		'  make progress            Run tests and refresh the progress report'
+		'  make progress            Run tests and show progress'
 
 answer:
 	@set -eu; \
