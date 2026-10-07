@@ -11,7 +11,7 @@ help:
 		'  make answer              Create the next unanswered project' \
 		'  make answer PROBLEM=003  Create a project for problem 003' \
 		'  make test                Show test progress for every problem' \
-		'  make progress            Show the saved progress report'
+		'  make progress            Run tests and refresh the progress report'
 
 answer:
 	@set -eu; \
@@ -36,5 +36,4 @@ answer:
 test:
 	@sh scripts/test-answers.sh
 
-progress:
-	@if [ -f PROGRESS.md ]; then cat PROGRESS.md; else echo 'No report yet. Run make test first.' >&2; exit 1; fi
+progress: test
