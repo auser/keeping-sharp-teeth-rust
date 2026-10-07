@@ -4,13 +4,14 @@ UNANSWERED := $(foreach problem,$(PROBLEMS),$(if $(wildcard $(call ANSWER_DIR,$(
 NEXT_PROBLEM := $(firstword $(UNANSWERED))
 PROBLEM_FILE = $(if $(PROBLEM),$(firstword $(wildcard problems/$(PROBLEM).md problems/$(PROBLEM)_*.md)),$(NEXT_PROBLEM))
 
-.PHONY: help answer test
+.PHONY: help answer test progress
 
 help:
 	@printf '%s\n' 'Targets:' \
 		'  make answer              Create the next unanswered project' \
 		'  make answer PROBLEM=003  Create a project for problem 003' \
-		'  make test                Show test progress for every problem'
+		'  make test                Show test progress for every problem' \
+		'  make progress            Show the saved progress report'
 
 answer:
 	@set -eu; \
@@ -34,3 +35,6 @@ answer:
 
 test:
 	@sh scripts/test-answers.sh
+
+progress:
+	@if [ -f PROGRESS.md ]; then cat PROGRESS.md; else printf '%s\\n' 'No report yet. Run make test first.' >&2; exit 1; fi
