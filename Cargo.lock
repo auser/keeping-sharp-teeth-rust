@@ -47,6 +47,10 @@ name = "prime-number-check"
 version = "0.1.0"
 
 [[package]]
+name = "reverse-integer"
+version = "0.1.0"
+
+[[package]]
 name = "reverse-string"
 version = "0.1.0"
 
