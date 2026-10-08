@@ -1,6 +1,6 @@
 # Problem Progress
 
-_Updated after make progress on 2026-10-07 20:01:59 UTC._
+_Updated after make progress on 2026-10-08 18:20:26 UTC._
 
 | Problem | Solution | Tests | Result |
 | --- | --- | --- | --- |
@@ -19,8 +19,8 @@ _Updated after make progress on 2026-10-07 20:01:59 UTC._
 | 013-leap-year | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 014-celsius-to-fahrenheit | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 015-swap-two-numbers | SOLVED | 1 passed, 0 failed | ✅ PASS |
-| 016-reverse-integer | NOT STARTED | — | ⏸️ NOT RUN |
-| 017-count-vowels | NOT STARTED | — | ⏸️ NOT RUN |
+| 016-reverse-integer | SOLVED | 1 passed, 0 failed | ✅ PASS |
+| 017-count-vowels | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 018-remove-duplicates-from-sorted-array | NOT STARTED | — | ⏸️ NOT RUN |
 | 019-merge-two-sorted-arrays | NOT STARTED | — | ⏸️ NOT RUN |
 | 020-valid-parentheses | NOT STARTED | — | ⏸️ NOT RUN |
@@ -105,6 +105,6 @@ _Updated after make progress on 2026-10-07 20:01:59 UTC._
 | 099-regular-expression-matching | NOT STARTED | — | ⏸️ NOT RUN |
 | 100-n-queens | NOT STARTED | — | ⏸️ NOT RUN |
 
-**Solutions passing:** 15/100 problems (15 tested)
+**Solutions passing:** 17/100 problems (17 tested)
 
-**Tests:** 23 passed, 0 failed
+**Tests:** 25 passed, 0 failed
