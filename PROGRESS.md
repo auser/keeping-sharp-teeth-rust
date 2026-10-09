@@ -1,6 +1,6 @@
 # Problem Progress
 
-_Updated after make progress on 2026-10-08 18:20:26 UTC._
+_Updated after make progress on 2026-10-09 17:25:35 UTC._
 
 | Problem | Solution | Tests | Result |
 | --- | --- | --- | --- |
@@ -21,7 +21,7 @@ _Updated after make progress on 2026-10-08 18:20:26 UTC._
 | 015-swap-two-numbers | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 016-reverse-integer | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 017-count-vowels | SOLVED | 1 passed, 0 failed | ✅ PASS |
-| 018-remove-duplicates-from-sorted-array | NOT STARTED | — | ⏸️ NOT RUN |
+| 018-remove-duplicates-from-sorted-array | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 019-merge-two-sorted-arrays | NOT STARTED | — | ⏸️ NOT RUN |
 | 020-valid-parentheses | NOT STARTED | — | ⏸️ NOT RUN |
 | 021-plus-one | NOT STARTED | — | ⏸️ NOT RUN |
@@ -105,6 +105,6 @@ _Updated after make progress on 2026-10-08 18:20:26 UTC._
 | 099-regular-expression-matching | NOT STARTED | — | ⏸️ NOT RUN |
 | 100-n-queens | NOT STARTED | — | ⏸️ NOT RUN |
 
-**Solutions passing:** 17/100 problems (17 tested)
+**Solutions passing:** 18/100 problems (18 tested)
 
-**Tests:** 25 passed, 0 failed
+**Tests:** 26 passed, 0 failed
