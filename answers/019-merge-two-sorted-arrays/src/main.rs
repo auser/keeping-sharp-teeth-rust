@@ -8,21 +8,22 @@ struct Solution;
 impl Solution {
     pub fn merge(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
         let (mut left, mut right) = (0, 0);
-        let mut result = Vec::with_capacity(nums1.len() + nums2.len());
+        let mut res = Vec::with_capacity(nums1.len() + nums2.len());
 
         while left < nums1.len() && right < nums2.len() {
             if nums1[left] <= nums2[right] {
-                result.push(nums1[left]);
+                res.push(nums1[left]);
                 left += 1;
             } else {
-                result.push(nums2[right]);
+                res.push(nums2[right]);
                 right += 1;
             }
         }
-        result.extend_from_slice(&nums1[left..]);
-        result.extend_from_slice(&nums2[right..]);
 
-        result
+        res.extend_from_slice(&nums1[left..]);
+        res.extend_from_slice(&nums2[right..]);
+
+        res
     }
 }
 
