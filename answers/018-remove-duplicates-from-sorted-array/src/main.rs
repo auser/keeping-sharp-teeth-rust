@@ -10,20 +10,13 @@ impl Solution {
         if nums.is_empty() {
             return 0;
         }
-
-        // Position for the next element
         let mut curr = 1;
-
-        // For every element int he array
         for next in 1..nums.len() {
-            // If the next elem is not the same as the unique last element
-            // e.g. write over the last one
             if nums[next] != nums[curr - 1] {
                 nums[curr] = nums[next];
                 curr += 1;
             }
         }
-
         curr as i32
     }
 }
