@@ -1,6 +1,6 @@
 # Problem Progress
 
-_Updated after make progress on 2026-10-11 18:15:22 UTC._
+_Updated after make progress on 2026-10-11 18:42:02 UTC._
 
 | Problem | Solution | Tests | Result |
 | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ _Updated after make progress on 2026-10-11 18:15:22 UTC._
 | 017-count-vowels | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 018-remove-duplicates-from-sorted-array | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 019-merge-two-sorted-arrays | SOLVED | 1 passed, 0 failed | ✅ PASS |
-| 020-valid-parentheses | NOT STARTED | — | ⏸️ NOT RUN |
+| 020-valid-parentheses | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 021-plus-one | NOT STARTED | — | ⏸️ NOT RUN |
 | 022-sqrt-x | NOT STARTED | — | ⏸️ NOT RUN |
 | 023-climbing-stairs | NOT STARTED | — | ⏸️ NOT RUN |
@@ -105,6 +105,6 @@ _Updated after make progress on 2026-10-11 18:15:22 UTC._
 | 099-regular-expression-matching | NOT STARTED | — | ⏸️ NOT RUN |
 | 100-n-queens | NOT STARTED | — | ⏸️ NOT RUN |
 
-**Solutions passing:** 19/100 problems (19 tested)
+**Solutions passing:** 20/100 problems (20 tested)
 
-**Tests:** 27 passed, 0 failed
+**Tests:** 28 passed, 0 failed
