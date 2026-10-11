@@ -4,7 +4,7 @@ fn main() {
 }
 
 struct Solution;
-m
+
 impl Solution {
     pub fn merge(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
         let (mut left, mut right) = (0, 0);
