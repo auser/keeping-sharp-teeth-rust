@@ -51,6 +51,10 @@ name = "palindrome-number"
 version = "0.1.0"
 
 [[package]]
+name = "plus-one"
+version = "0.1.0"
+
+[[package]]
 name = "prime-number-check"
 version = "0.1.0"
 
