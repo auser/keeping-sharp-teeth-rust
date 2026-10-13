@@ -1,6 +1,6 @@
 # Problem Progress
 
-_Updated after make progress on 2026-10-11 18:42:02 UTC._
+_Updated after make progress on 2026-10-13 22:53:45 UTC._
 
 | Problem | Solution | Tests | Result |
 | --- | --- | --- | --- |
@@ -24,7 +24,7 @@ _Updated after make progress on 2026-10-11 18:42:02 UTC._
 | 018-remove-duplicates-from-sorted-array | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 019-merge-two-sorted-arrays | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 020-valid-parentheses | SOLVED | 1 passed, 0 failed | ✅ PASS |
-| 021-plus-one | NOT STARTED | — | ⏸️ NOT RUN |
+| 021-plus-one | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 022-sqrt-x | NOT STARTED | — | ⏸️ NOT RUN |
 | 023-climbing-stairs | NOT STARTED | — | ⏸️ NOT RUN |
 | 024-remove-element | NOT STARTED | — | ⏸️ NOT RUN |
@@ -105,6 +105,6 @@ _Updated after make progress on 2026-10-11 18:42:02 UTC._
 | 099-regular-expression-matching | NOT STARTED | — | ⏸️ NOT RUN |
 | 100-n-queens | NOT STARTED | — | ⏸️ NOT RUN |
 
-**Solutions passing:** 20/100 problems (20 tested)
+**Solutions passing:** 21/100 problems (21 tested)
 
-**Tests:** 28 passed, 0 failed
+**Tests:** 29 passed, 0 failed
