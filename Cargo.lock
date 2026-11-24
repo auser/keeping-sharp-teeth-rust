@@ -7,6 +7,10 @@ name = "celsius-to-fahrenheit"
 version = "0.1.0"
 
 [[package]]
+name = "climbing-stairs"
+version = "0.1.0"
+
+[[package]]
 name = "count-digits"
 version = "0.1.0"
 
