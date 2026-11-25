@@ -136,6 +136,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "search-insert-position"
+version = "0.1.0"
+dependencies = [
+ "test-support",
+]
+
+[[package]]
 name = "sqrt-x"
 version = "0.1.0"
 dependencies = [

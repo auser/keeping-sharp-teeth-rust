@@ -8,7 +8,7 @@ impl Solution {
     pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
         // nums.retain(|&x| x != val);
         // nums.len() as i32
-        // or manually
+        // or manually without retain
         let mut count = 0;
         for i in 0..nums.len() {
             if nums[i] != val {
@@ -16,6 +16,7 @@ impl Solution {
                 count += 1;
             }
         }
+        // could do `.pop()`, but this is fine
         nums.truncate(count); // reduce the vector
         count as i32
     }
