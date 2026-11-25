@@ -82,11 +82,42 @@ EOF
     printf '%s\t%s\t%s\t%s\n' "$problem" 'SOLVED' "$test_summary" "$result" >> "$rows"
 done
 
-printf '\n%-28s %-12s %-24s %s\n' 'Problem' 'Solution' 'Tests' 'Result'
-printf '%-28s %-12s %-24s %s\n' '----------------------------' '------------' '------------------------' '------'
-while IFS="$(printf '\t')" read -r problem solution test_summary result; do
-    printf '%-28s %-12s %-24s %s\n' "$problem" "$solution" "$test_summary" "$result"
-done < "$rows"
+awk -F '\t' '
+    function display_width(value) {
+        # The Tests placeholder occupies one column, even in byte-counting awks.
+        return value == "—" ? 1 : length(value)
+    }
+    function print_row(line, fields, i) {
+        split(line, fields, FS)
+        for (i = 1; i <= 3; i++) {
+            printf "%s%*s", fields[i], widths[i] - display_width(fields[i]) + 2, ""
+        }
+        print fields[4]
+    }
+    BEGIN {
+        header = "Problem\tSolution\tTests\tResult"
+        split(header, headings, FS)
+        for (i = 1; i <= 3; i++) widths[i] = length(headings[i])
+    }
+    {
+        rows[NR] = $0
+        for (i = 1; i <= 3; i++) {
+            width = display_width($i)
+            if (width > widths[i]) widths[i] = width
+        }
+    }
+    END {
+        print ""
+        print_row(header)
+        for (i = 1; i <= 3; i++) {
+            separator = sprintf("%*s", widths[i], "")
+            gsub(/ /, "-", separator)
+            printf "%s  ", separator
+        }
+        print "------"
+        for (row = 1; row <= NR; row++) print_row(rows[row])
+    }
+' "$rows"
 
 printf '\nSolutions passing: %d/%d problems (%d tested)\n' \
     "$solutions_passing" "$total" "$solutions_tested"
