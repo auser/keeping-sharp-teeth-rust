@@ -5,91 +5,164 @@ version = 4
 [[package]]
 name = "celsius-to-fahrenheit"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "climbing-stairs"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "count-digits"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "count-vowels"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "even-or-odd"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "factorial"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "fibonacci-number"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "find-maximum"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "find-minimum"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "fizzbuzz"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "leap-year"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "merge-two-sorted-arrays"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "palindrome-number"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "plus-one"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "prime-number-check"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "remove-duplicates-from-sorted-array"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "reverse-integer"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "reverse-string"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "sqrt-x"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "sum_of_array"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "swap-two-numbers"
+version = "0.1.0"
+dependencies = [
+ "test-support",
+]
+
+[[package]]
+name = "test-support"
 version = "0.1.0"
 
 [[package]]
 name = "two-sum"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]
 
 [[package]]
 name = "valid-parentheses"
 version = "0.1.0"
+dependencies = [
+ "test-support",
+]

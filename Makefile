@@ -8,9 +8,9 @@ PROBLEM_FILE = $(if $(PROBLEM),$(firstword $(wildcard problems/$(PROBLEM).md pro
 
 help:
 	@printf '%s\n' 'Targets:' \
-		'  make answer              Create the next unanswered project' \
+		'  make answer              Create the next unanswered project with test helpers' \
 		'  make answer PROBLEM=003  Create a project for problem 003' \
-		'  make test                Show test progress for every problem' \
+		'  make test                Test shared helpers and show progress for every problem' \
 		'  make progress            Run tests and show progress'
 
 answer:
@@ -31,9 +31,13 @@ answer:
 	fi; \
 	crate_name=$$(basename "$$answer_dir" | sed 's/^[0-9][0-9]*-//'); \
 	cargo new --bin --name "$$crate_name" "$$answer_dir"; \
+	printf '\n[dev-dependencies]\ntest-support.workspace = true\n' >> "$$answer_dir/Cargo.toml"; \
+	cp templates/answer.rs "$$answer_dir/src/main.rs"; \
 	printf 'Created %s\n' "$$answer_dir"
 
 test:
-	@sh scripts/test-answers.sh
+	@support_status=0; \
+	cargo test -p test-support || support_status=$$?; \
+	sh scripts/test-answers.sh && [ "$$support_status" -eq 0 ]
 
 progress: test

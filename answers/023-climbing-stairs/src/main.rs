@@ -15,25 +15,13 @@ impl Solution {
     }
 }
 
-macro_rules! test_cases {
-    ($($name:ident : $input:expr => $expected:expr),*, $(,)?) => {
-        $(
-            #[test]
-            fn $name() {
-                assert_eq!(
-                    Solution::climb_stairs($input),
-                    $expected
-                );
-            }
-        )*
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
+    use test_support::test_cases;
 
     test_cases! {
+        Solution::climb_stairs;
         single_step: 1 => 1,
         two_steps: 2 => 2,
         three_steps: 3 => 3,
