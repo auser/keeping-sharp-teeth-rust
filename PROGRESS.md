@@ -1,6 +1,6 @@
 # Problem Progress
 
-_Updated after make progress on 2026-11-25 02:14:17 UTC._
+_Updated after make progress on 2026-11-25 02:30:54 UTC._
 
 | Problem | Solution | Tests | Result |
 | --- | --- | --- | --- |
@@ -27,7 +27,7 @@ _Updated after make progress on 2026-11-25 02:14:17 UTC._
 | 021-plus-one | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 022-sqrt-x | SOLVED | 1 passed, 0 failed | ✅ PASS |
 | 023-climbing-stairs | SOLVED | 6 passed, 0 failed | ✅ PASS |
-| 024-remove-element | NOT STARTED | — | ⏸️ NOT RUN |
+| 024-remove-element | SOLVED | 3 passed, 0 failed | ✅ PASS |
 | 025-search-insert-position | NOT STARTED | — | ⏸️ NOT RUN |
 | 026-length-of-last-word | NOT STARTED | — | ⏸️ NOT RUN |
 | 027-add-binary | NOT STARTED | — | ⏸️ NOT RUN |
@@ -105,6 +105,6 @@ _Updated after make progress on 2026-11-25 02:14:17 UTC._
 | 099-regular-expression-matching | NOT STARTED | — | ⏸️ NOT RUN |
 | 100-n-queens | NOT STARTED | — | ⏸️ NOT RUN |
 
-**Solutions passing:** 23/100 problems (23 tested)
+**Solutions passing:** 24/100 problems (24 tested)
 
-**Tests:** 36 passed, 0 failed
+**Tests:** 39 passed, 0 failed
