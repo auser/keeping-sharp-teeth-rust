@@ -115,6 +115,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "remove-element"
+version = "0.1.0"
+dependencies = [
+ "test-support",
+]
+
+[[package]]
 name = "reverse-integer"
 version = "0.1.0"
 dependencies = [
