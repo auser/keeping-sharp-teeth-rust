@@ -27,9 +27,10 @@ make answer
 
 Problems are considered in numeric filename order. The command creates a
 binary Cargo project in `answers/`, adds the shared test helper, and copies the
-answer template. Its test module imports `test_cases!` and contains a commented
-example ready to fill in. It does not add placeholder tests. Problems whose
-answer directory already exists are skipped.
+answer template. The template includes `struct Solution;` and an empty
+`impl Solution {}`. Its test module imports `Solution` and `test_cases!`, with
+an empty macro invocation ready for your cases. Problems whose answer
+directory already exists are skipped.
 
 To choose a particular problem by its numeric prefix, run:
 
@@ -70,22 +71,51 @@ mod tests {
 ```
 
 Each row becomes a separate `#[test]` function using `assert_eq!`, so Cargo
-reports failures by case name. The helper works with any function or closure
-taking one argument; a tuple counts as one argument.
+reports failures by case name. The helper accepts one or more arguments per
+case, separated by commas. A parenthesized tuple still counts as one argument.
 
-For multiple arguments, write the full call in each row instead. For example,
-inside the two-sum answer's test module:
+For a function that takes multiple arguments, list them in the same order as a
+normal function call. For example, inside the two-sum answer's test module:
 
 ```rust
 test_cases! {
-    first_pair: Solution::two_sum(vec![2, 7, 11, 15], 9) => vec![0, 1],
-    later_pair: Solution::two_sum(vec![3, 2, 4], 6) => vec![1, 2],
+    Solution::two_sum;
+    first_pair: vec![2, 7, 11, 15], 9 => vec![0, 1],
+    later_pair: vec![3, 2, 4], 6 => vec![1, 2],
 }
 ```
 
-The expression before `=>` can also be a block that sets up or mutates data
-and returns the value to compare. Both forms accept a trailing comma. Existing
-handwritten `#[test]` functions can stay alongside the generated tests.
+Pass references explicitly when the function requires them. For
+`remove_element(nums: &mut Vec<i32>, val: i32) -> i32`:
+
+```rust
+test_cases! {
+    Solution::remove_element;
+    simple_input: &mut vec![3, 2, 2, 3], 3 => 2,
+}
+```
+
+Removing `3` leaves two elements, so the expected return value is `2`. This
+case checks the returned count. To inspect the retained values as well, use a
+setup block in the complete-expression form:
+
+```rust
+test_cases! {
+    retained_values: {
+        let mut nums = vec![3, 2, 2, 3];
+        let remaining = Solution::remove_element(&mut nums, 3);
+        let retained = nums[..remaining as usize].to_vec();
+        (remaining, retained)
+    } => (2, vec![2, 2]),
+}
+```
+
+Only the first `remaining` values are part of this exercise's result.
+
+Without a function before `;`, each expression before `=>` is compared
+directly with its expected value. A complete function call also works there.
+Both forms accept a trailing comma. Existing handwritten `#[test]` functions
+can stay alongside the generated tests.
 
 To run just one case, use Cargo's test filter from that answer's directory:
 
