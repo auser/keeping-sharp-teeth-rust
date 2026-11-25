@@ -10,6 +10,11 @@ impl Solution {
     fn add(left: i32, right: i32) -> i32 {
         left + right
     }
+
+    fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
+        nums.retain(|&x| x != val);
+        nums.len() as i32
+    }
 }
 
 mod function {
@@ -31,6 +36,25 @@ mod closure {
     }
 }
 
+mod multiple_arguments {
+    use super::*;
+
+    test_cases! {
+        Solution::add;
+        two_arguments: 2, 3 => 5,
+    }
+
+    test_cases! {
+        |(left, right), factor| (left + right) * factor;
+        tuple_and_scalar: (2, 3), 4 => 20
+    }
+
+    test_cases! {
+        Solution::remove_element;
+        mutable_vector: &mut vec![3, 2, 2, 3], 3 => 2,
+    }
+}
+
 mod qualified {
     test_support::test_cases! {
         std::convert::identity;
@@ -49,6 +73,12 @@ mod expressions {
             values.sort();
             values
         } => vec![1, 2, 3],
+        mutated_input: {
+            let mut nums = vec![3, 2, 2, 3];
+            let remaining = Solution::remove_element(&mut nums, 3);
+            let retained = nums[..remaining as usize].to_vec();
+            (remaining, retained)
+        } => (2, vec![2, 2]),
     }
 }
 

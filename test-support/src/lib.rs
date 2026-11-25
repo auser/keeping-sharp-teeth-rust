@@ -1,6 +1,6 @@
 /// Generate a separate named test for each equality assertion.
 ///
-/// Pass a function or closure before `;` to apply it to every input:
+/// Pass a function or closure before `;`, then list each case's arguments:
 ///
 /// ```
 /// use test_support::test_cases;
@@ -12,7 +12,18 @@
 /// }
 /// ```
 ///
-/// Use complete expressions for multiple arguments or setup blocks:
+/// Separate multiple arguments with commas. A tuple remains one argument:
+///
+/// ```
+/// use test_support::test_cases;
+///
+/// test_cases! {
+///     std::cmp::max;
+///     larger: 2, 3 => 3,
+/// }
+/// ```
+///
+/// Use complete expressions when a case needs setup or checks mutated data:
 ///
 /// ```
 /// use test_support::test_cases;
@@ -31,9 +42,9 @@
 /// by name. An empty invocation adds no tests.
 #[macro_export]
 macro_rules! test_cases {
-    ($function:expr; $($name:ident: $input:expr => $expected:expr),* $(,)?) => {
+    ($function:expr; $($name:ident: $($argument:expr),+ => $expected:expr),* $(,)?) => {
         $crate::test_cases! {
-            $($name: ($function)($input) => $expected),*
+            $($name: ($function)($($argument),+) => $expected),*
         }
     };
     ($($name:ident: $actual:expr => $expected:expr),* $(,)?) => {
